@@ -1,0 +1,77 @@
+.header {
+  position: fixed;
+  min-width: 200px;
+  width: 20rem;
+  color: papayawhip;
+  border-right: 2px solid lightblue;
+  top: 0;
+  left: 0;
+  transition: 800ms;
+}
+.header.active {
+  left: calc(-20rem - 200px);
+  transition: 300ms;
+}
+.nav {
+  background: var(--header-bg-color);
+  font-size: calc(10px + 1rem);
+}
+.toggle__bar {
+  padding: 1rem 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.toggle__icon {
+  position: absolute;
+  right: 1rem;
+  font-size: calc(32px + 2rem);
+}
+.toggle__icon:hover {
+  cursor: pointer;
+  border-radius: 25%;
+  background: var(--header-hover-color);
+  color: var(--header-text);
+  transition: 300ms;
+}
+.toggle__icon.disabled {
+  position: absolute;
+  top: 1rem;
+  left: -7rem;
+  transition: 800ms;
+}
+.toggle__icon.active {
+  position: absolute;
+  top: 1rem;
+  left: 3rem;
+  transition: 400ms;
+}
+.nav ul h2 {
+  height: 5em;
+}
+.nav ul {
+  height: 100vh;
+  padding-right: 2rem;
+}
+
+.nav ul li {
+  color: papayawhip;
+  height: 10vh;
+  white-space: nowrap;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: 300ms;
+}
+.nav ul li span {
+  flex-grow: 0.5;
+}
+.nav ul li:hover {
+  background-color: var(--header-hover-color);
+  color: var(--header-text);
+}
+.nav ul li span {
+  margin-left: 1.5rem;
+  height: 1.5em;
+}

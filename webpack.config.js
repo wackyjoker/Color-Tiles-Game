@@ -4,12 +4,11 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = (env) => {
-  const isProduction = env === "production";
-  console.log("are we on production mode? : ", isProduction + " ( 0--o-o--0 )");
+module.exports = ({ production }) => {
+  console.log("are we on production mode? : ", production + " ( 0--o-o--0 )");
 
   return {
-    mode: isProduction ? "production" : "development", // "production" | "development" | "none"
+    mode: production ? "production" : "development",
     entry: "./src/index.tsx",
     output: {
       path: path.resolve(__dirname, "build", "dist"),
@@ -28,14 +27,12 @@ module.exports = (env) => {
         ignoreOrder: true, // Enable to remove warnings about conflicting order
       }),
     ],
+
     //webpack dev server
 
     devServer: {
-      watchOptions: {
-        aggregateTimeout: 500,
-        poll: 1000,
-      },
-      contentBase: path.join(__dirname, "build", "dist"),
+      hot: true,
+      contentBase: path.join(__dirname, "dist"),
       historyApiFallback: true,
       compress: true,
       port: 9000,
