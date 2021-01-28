@@ -6,12 +6,13 @@ import { Link } from "react-router-dom";
 const Header: React.FC = () => {
   const [toggle, setToggle] = useState<Boolean>(false);
   const fold = () => setToggle((prevState) => !prevState);
-  console.log(toggle);
+  useEffect(() => {
+    if (window.matchMedia("(max-width: 500px)").matches) fold();
+  }, []);
+
   return (
     <>
-      <span className={toggle ? "toggle__icon active" : "toggle__icon disabled"} onClick={fold}>
-        <AiOutlineMenuUnfold />
-      </span>
+      <AiOutlineMenuUnfold className={toggle ? "toggle__icon active" : "toggle__icon disabled"} onClick={fold} />
       <header className={toggle ? "header active" : "header"} role="banner">
         <nav role="navigation" className="nav">
           <div className="toggle__bar" role="button">

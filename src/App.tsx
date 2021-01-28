@@ -1,18 +1,24 @@
 import React from "react";
-import "./styles/App.css";
 import Header from "./components/Header";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import EasyMode from "./components/EasyMode";
+import MineSweeper from "./components/HardMode";
+import { Provider } from "./components/Contexts";
+import "./styles/app.css";
 function App() {
   return (
-    <Router>
-      <div className="App">
+    <Provider>
+      <Router>
         <Header />
-        <Switch>
-          <Route path={"/easy-mode"} element={<EasyMode />} />
-        </Switch>
-      </div>
-    </Router>
+        <div className="main" role="main">
+          <Switch>
+            <Redirect exact from="/" to="/easymode" />
+            <Route path="/easymode" exact component={EasyMode} />
+            <Route path="/minesweeper" component={MineSweeper} />
+          </Switch>
+        </div>
+      </Router>
+    </Provider>
   );
 }
 

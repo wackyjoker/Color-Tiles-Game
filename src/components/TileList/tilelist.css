@@ -1,0 +1,6 @@
+.tile__list {
+  width: 100%;
+  display: grid;
+
+  border: lightslategrey 4px dotted;
+}

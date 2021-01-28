@@ -3,13 +3,13 @@ import { GiBoltBomb } from "react-icons/gi";
 export const icons = [
   {
     title: "Easy Mode",
-    path: "/",
+    path: "/easymode",
     icon: <GiAbstract050 />,
     name: "nav-text",
   },
   {
     title: "Fun Mode",
-    path: "/",
+    path: "/minesweeper",
     icon: <GiBoltBomb />,
     name: "nav-text",
   },

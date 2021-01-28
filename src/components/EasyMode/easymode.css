@@ -1,0 +1,21 @@
+.list {
+  width: 60rem;
+  display: flex;
+  height: 60rem;
+  max-height: 80vh;
+  background: grey;
+}
+
+@media only screen and (max-width: 468px) {
+  .list {
+    width: 90rem;
+    height: 90rem;
+  }
+}
+@media only screen and (min-width: 1080px) {
+  .list {
+    width: 40rem;
+    width: 40rem;
+    max-height: 80vh;
+  }
+}

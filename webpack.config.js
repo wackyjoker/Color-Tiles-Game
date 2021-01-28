@@ -52,9 +52,12 @@ module.exports = ({ production }) => {
       rules: [
         {
           test: /\.css$/i,
+          // Creates `style` nodes from JS strings
+
           use: [
-            // Creates `style` nodes from JS strings
-            "style-loader",
+            {
+              loader: "style-loader",
+            },
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
@@ -66,7 +69,12 @@ module.exports = ({ production }) => {
               },
             },
             // Translates CSS into CommonJS
-            "css-loader",
+            {
+              loader: "css-loader",
+              options: {
+                modules: { auto: true },
+              },
+            },
           ],
         },
         {

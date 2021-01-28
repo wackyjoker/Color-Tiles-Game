@@ -1,19 +1,21 @@
 .header {
-  position: fixed;
-  min-width: 200px;
+  height: 100vh;
+  min-width: 300px;
   width: 20rem;
+  max-width: 20%;
   color: papayawhip;
   border-right: 2px solid lightblue;
-  top: 0;
-  left: 0;
+  margin-left: 0;
   transition: 800ms;
+  background: var(--header-bg-color);
 }
 .header.active {
-  left: calc(-20rem - 200px);
+  min-width: 0;
+  width: 0;
   transition: 300ms;
+  border: none;
 }
 .nav {
-  background: var(--header-bg-color);
   font-size: calc(10px + 1rem);
 }
 .toggle__bar {
@@ -23,34 +25,35 @@
   justify-content: center;
 }
 .toggle__icon {
+  border-radius: 25%;
   position: absolute;
   right: 1rem;
   font-size: calc(32px + 2rem);
 }
-.toggle__icon:hover {
-  cursor: pointer;
-  border-radius: 25%;
-  background: var(--header-hover-color);
-  color: var(--header-text);
-  transition: 300ms;
-}
+
 .toggle__icon.disabled {
-  position: absolute;
   top: 1rem;
-  left: -7rem;
+  left: calc(-7rem - 200px);
   transition: 800ms;
 }
 .toggle__icon.active {
-  position: absolute;
+  z-index: 3;
+  color: white;
+  background: var(--header-bg-color);
   top: 1rem;
   left: 3rem;
   transition: 400ms;
+}
+.toggle__icon:hover {
+  cursor: pointer;
+  background: var(--header-hover-color);
+  color: var(--header-text);
+  transition: 300ms;
 }
 .nav ul h2 {
   height: 5em;
 }
 .nav ul {
-  height: 100vh;
   padding-right: 2rem;
 }
 
