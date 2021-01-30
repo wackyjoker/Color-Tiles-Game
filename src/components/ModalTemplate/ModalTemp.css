@@ -1,0 +1,13 @@
+.react-responsive-modal-modal {
+  border-radius: 10px;
+  padding: 3em;
+}
+.react-responsive-modal-closeButton {
+  color: white;
+  top: 0;
+  right: 0;
+  overflow: auto;
+  border-radius: 100%;
+  border: solid 5px white;
+  background-color: tomato;
+}

@@ -1,80 +1,88 @@
 .header {
   height: 100vh;
-  min-width: 300px;
-  width: 20rem;
-  max-width: 20%;
+  width: calc(200px + 10rem);
+  position: fixed;
+  z-index: 2;
   color: papayawhip;
-  border-right: 2px solid lightblue;
+  border-right: 2px solid rgb(41, 50, 53);
   margin-left: 0;
-  transition: 800ms;
+  transition: ease-in 0.5s width;
   background: var(--header-bg-color);
 }
 .header.active {
-  min-width: 0;
   width: 0;
-  transition: 300ms;
+  transition: ease-out 0.2s width;
   border: none;
 }
 .nav {
-  font-size: calc(10px + 1rem);
+  font-size: calc(16px + 1rem);
+  padding: 0;
 }
-.toggle__bar {
-  padding: 1rem 0;
+.title__bar {
+  line-height: 1.2;
+  padding: 1em;
   position: relative;
   display: flex;
   justify-content: center;
 }
-.toggle__icon {
+.title__bar.active {
+  position: static;
+}
+.title__bar h2 {
+  overflow: hidden;
+}
+.title__icon {
+  cursor: pointer;
   border-radius: 25%;
   position: absolute;
-  right: 1rem;
   font-size: calc(32px + 2rem);
+  right: 1rem;
+  transition: ease-in 0.5s transform, linear 300ms background;
 }
-
-.toggle__icon.disabled {
-  top: 1rem;
-  left: calc(-7rem - 200px);
-  transition: 800ms;
-}
-.toggle__icon.active {
+.title__icon.active {
   z-index: 3;
-  color: white;
   background: var(--header-bg-color);
-  top: 1rem;
-  left: 3rem;
-  transition: 400ms;
+  left: 1rem;
+  transform: rotate(180deg);
+  transition: ease-out 0.5s transform, linear 300ms color;
 }
-.toggle__icon:hover {
-  cursor: pointer;
-  background: var(--header-hover-color);
-  color: var(--header-text);
-  transition: 300ms;
-}
-.nav ul h2 {
-  height: 5em;
+.title__icon:hover {
+  background-color: var(--header-item-color--hovered);
+  color: var(--header-text-color--hovered);
 }
 .nav ul {
   padding-right: 2rem;
 }
 
-.nav ul li {
-  color: papayawhip;
-  height: 10vh;
+.nav ul .list-item__container {
   white-space: nowrap;
-  border-radius: 2rem;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: space-evenly;
-  transition: 300ms;
 }
+.list-item__container a {
+  overflow: hidden;
+}
+.list-item__container div {
+  color: papayawhip;
+  padding: 1em;
+  border-radius: 2rem;
+  transition-property: background, color;
+  transition-duration: 300ms;
+}
+.list-item__container div:hover {
+  background-color: var(--header-item-color--hovered);
+  color: var(--header-text-color--hovered);
+}
+
 .nav ul li span {
-  flex-grow: 0.5;
-}
-.nav ul li:hover {
-  background-color: var(--header-hover-color);
-  color: var(--header-text);
-}
-.nav ul li span {
-  margin-left: 1.5rem;
+  margin-left: 1em;
   height: 1.5em;
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 468px) {
+  .toggle__bar {
+    position: static;
+  }
 }

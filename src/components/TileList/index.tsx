@@ -1,11 +1,9 @@
 import React from "react";
 import Tile from "../Tile";
 import "./tilelist.css";
-import { useData } from "../Contexts";
-//correct={ele}
-const TileList: React.FC = () => {
-  let context = useData();
-  let { row } = context;
+import { IContext } from "../Types";
+const TileList: React.FC<IContext> = (props) => {
+  let { row, validator, colorPicker } = props;
   const listStyle = {
     gridTemplateColumns: `repeat(${row}, 1fr)`,
     gridTemplateRows: `repeat(${row}, 1fr)`,
@@ -13,9 +11,9 @@ const TileList: React.FC = () => {
 
   return (
     <div className="tile__list" style={listStyle}>
-      {context.tiles.map((ele, index) => {
-        if (ele) return <Tile {...context} key={index} />;
-        return <Tile key={index} />;
+      {props.tiles.map((ele, index) => {
+        if (ele) return <Tile color={colorPicker(ele)} key={index} returnedHandler={validator(ele)} />;
+        return <Tile key={index} color={colorPicker(ele)} returnedHandler={validator(ele)} />;
       })}
     </div>
   );

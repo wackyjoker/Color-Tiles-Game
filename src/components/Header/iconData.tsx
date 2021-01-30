@@ -1,5 +1,5 @@
-import { GiAbstract050 } from "react-icons/gi";
-import { GiBoltBomb } from "react-icons/gi";
+import { GiAbstract050, GiBoltBomb } from "react-icons/gi";
+import { AiTwotoneTrophy } from "react-icons/ai";
 export const icons = [
   {
     title: "Easy Mode",
@@ -11,6 +11,12 @@ export const icons = [
     title: "Fun Mode",
     path: "/minesweeper",
     icon: <GiBoltBomb />,
+    name: "nav-text",
+  },
+  {
+    title: "Score Board",
+    path: "/leaderboard",
+    icon: <AiTwotoneTrophy />,
     name: "nav-text",
   },
 ];

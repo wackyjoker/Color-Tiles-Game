@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./header.css";
 import { icons } from "./iconData";
-import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
+import { AiOutlineMenuFold } from "react-icons/ai";
 import { Link } from "react-router-dom";
 const Header: React.FC = () => {
   const [toggle, setToggle] = useState<Boolean>(false);
@@ -12,24 +12,28 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <AiOutlineMenuUnfold className={toggle ? "toggle__icon active" : "toggle__icon disabled"} onClick={fold} />
       <header className={toggle ? "header active" : "header"} role="banner">
         <nav role="navigation" className="nav">
-          <div className="toggle__bar" role="button">
+          <div className={toggle ? "title__bar active" : "title__bar"}>
             <h2>Menu</h2>
-            <AiOutlineMenuFold className="toggle__icon" onClick={fold} />
+            <AiOutlineMenuFold
+              className={toggle ? "title__icon active" : "title__icon"}
+              onClick={fold}
+              role="presentation"
+              aria-label="fold"
+            />
           </div>
-          <ul>
+          <ul role="list" aria-labelledby="navigation">
             {icons.map((items, key) => {
               return (
-                <Link to={items.path} key={key}>
-                  <div>
-                    <li role="link">
+                <li role="listitem" className="list-item__container" key={key}>
+                  <Link to={items.path}>
+                    <div role="listitem">
                       {items.icon}
                       <span>{items.title}</span>
-                    </li>
-                  </div>
-                </Link>
+                    </div>
+                  </Link>
+                </li>
               );
             })}
           </ul>

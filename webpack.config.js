@@ -11,7 +11,7 @@ module.exports = ({ production }) => {
     mode: production ? "production" : "development",
     entry: "./src/index.tsx",
     output: {
-      path: path.resolve(__dirname, "build", "dist"),
+      path: path.resolve(__dirname, "dist"),
       filename: "bundle.js",
     },
     plugins: [
@@ -32,7 +32,7 @@ module.exports = ({ production }) => {
 
     devServer: {
       hot: true,
-      contentBase: path.join(__dirname, "dist"),
+      contentBase: path.join(__dirname, "bulid"),
       historyApiFallback: true,
       compress: true,
       port: 9000,

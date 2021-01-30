@@ -6,8 +6,8 @@
 }
 :root {
   --header-bg-color: rgb(21, 32, 43);
-  --header-hover-color: #2b4055;
-  --header-text: #0066ff;
+  --header-item-color--hovered: #2b4055;
+  --header-text-color--hovered: #0066ff;
 }
 html {
   text-align: start;
@@ -28,8 +28,16 @@ code {
 .main {
   display: flex;
   justify-content: center;
+  overflow: hidden;
   z-index: 0;
-  background: gainsboro;
+  background: rgb(23, 36, 48);
+  height: 100vh;
   width: 100%;
   align-items: center;
+}
+button:focus {
+  outline: -webkit-focus-ring-color auto 0px;
+  outline-color: -webkit-focus-ring-color;
+  outline-style: auto;
+  outline-width: 0px;
 }
