@@ -29,11 +29,6 @@ export const Provider: React.FC = ({ children }) => {
   const addRow = () => setRow((prevState) => prevState + 1);
 
   useEffect(() => {
-    addPlayer("goya");
-    addPlayer("moda");
-    addPlayer("moda");
-    addPlayer("moda");
-
     if (row > 4) {
       setWinCheck(true);
       onOpenModal();
