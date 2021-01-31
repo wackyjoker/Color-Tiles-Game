@@ -10,7 +10,6 @@ const FailModal = ModalGenerator(ModalTemplate);
 
 const EasyMode: React.FC = () => {
   const context = useData();
-  console.log(context.players);
   return (
     <section>
       <div className="level">
