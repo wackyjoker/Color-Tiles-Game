@@ -81,8 +81,11 @@
   background-color: var(--header-item-color--hovered);
   color: var(--header-text-color--hovered);
 }
-
+.nav ul li svg {
+  flex: 1 1 auto;
+}
 .nav ul li span {
+  flex: 1 3 auto;
   margin-left: 1em;
   height: 1.5em;
   white-space: nowrap;

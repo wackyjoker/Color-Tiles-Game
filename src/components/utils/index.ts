@@ -1,8 +1,4 @@
 
-interface IColor{
-  correctColor:string;
-    wrongColor:string;
-}
 export class Game{
   row:number;
   arr:Boolean[];

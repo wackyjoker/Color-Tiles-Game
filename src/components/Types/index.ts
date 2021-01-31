@@ -8,6 +8,7 @@ export type IContext = {
     returnedHandler?:()=>void
     validator:(bol:Boolean)=>()=>void;
     colorPicker:(bol:Boolean) =>string; 
+    addPlayer:(player:string)=>void;
   };
 
   // handleRows?: () => void;

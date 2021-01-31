@@ -1,13 +1,15 @@
-import React, { ComponentType, useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Modal, ModalProps } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 import "./ModalTemp.css";
 import loseimg from "../../images/gameover.png";
 import winimg from "../../images/weWin.png";
+import { useHistory } from "react-router-dom";
 interface TempProps extends ModalProps {
   open: boolean;
   onClose(): void;
+  addPlayer: (player: string) => void;
   winCheck: boolean;
 }
 
@@ -22,6 +24,16 @@ export default ModalGenerator;
 
 // Modal Template Argument
 export const ModalTemplate: React.FC<TempProps> = (props) => {
+  const [input, setInput] = useState("");
+  let history = useHistory();
+  const handleClick = (e: any) => {
+    props.addPlayer(input);
+    history.push("/scoreboard");
+  };
+  const handleChange = (e: any) => {
+    setInput(e.target.value);
+  };
+
   const gameoverComp = (
     <>
       <h1>You just Lost</h1>
@@ -33,9 +45,12 @@ export const ModalTemplate: React.FC<TempProps> = (props) => {
     <>
       <h1>Congrats!!</h1>
       <img alt="You Win" src={winimg} className="modal__img" />
-
-      <input type="text" />
-      <Link to={"/scoreboard"}>Enter</Link>
+      <form>
+        <input type="text" placeholder="Enter Your name" onChange={handleChange} />
+        <button type="submit" onClick={handleClick}>
+          Enter
+        </button>
+      </form>
     </>
   );
   return (

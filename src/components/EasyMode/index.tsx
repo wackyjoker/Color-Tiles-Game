@@ -10,7 +10,7 @@ const FailModal = ModalGenerator(ModalTemplate);
 
 const EasyMode: React.FC = () => {
   const context = useData();
-
+  console.log(context.players);
   return (
     <section>
       <div className="level">
@@ -19,7 +19,12 @@ const EasyMode: React.FC = () => {
       <div className="list">
         <TileList {...context} />
       </div>
-      <FailModal winCheck={context.winCheck} open={context.openModal} onClose={context.onCloseModal} />
+      <FailModal
+        winCheck={context.winCheck}
+        open={context.openModal}
+        onClose={context.onCloseModal}
+        addPlayer={context.addPlayer}
+      />
     </section>
   );
 };

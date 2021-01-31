@@ -1,0 +1,28 @@
+.score-container {
+  background-color: papayawhip;
+  color: black;
+  width: 40rem;
+  height: 80vh;
+  padding: 2em 0;
+  border-radius: 1em;
+  justify-content: space-around;
+  overflow: auto;
+}
+
+@media only screen and (max-width: 468px) {
+  .score-container {
+    width: 80%;
+  }
+}
+
+.score-container div {
+  display: flex;
+  flex-direction: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  border: solid lightslategray 2px;
+  width: 100%;
+  text-align: center;
+  padding: 1em 2em;
+}
