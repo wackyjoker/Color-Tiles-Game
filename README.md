@@ -1,6 +1,7 @@
 # Getting Started with Color-Select Game.
-
-Require Node 14.2.0 + to run the following commands.\
+![NodeJS](https://img.shields.io/node/v/webpack?logo=node.js&logoColor=%23339933&style=plastic)
+\
+Require NodeJS to run the following commands.
 
 ### `npm install`
 
