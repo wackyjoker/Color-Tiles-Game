@@ -10,11 +10,12 @@ const FailModal = ModalGenerator(ModalTemplate);
 
 const EasyMode: React.FC = () => {
   const context = useData();
-  console.log(context);
 
   return (
     <section>
-      <div> Level {context.row - 2}</div>
+      <div className="level">
+        <h2>Level</h2> <h2>{context.row - 2}</h2>
+      </div>
       <div className="list">
         <TileList {...context} />
       </div>

@@ -4,6 +4,7 @@ import "./tilelist.css";
 import { IContext } from "../Types";
 const TileList: React.FC<IContext> = (props) => {
   let { row, validator, colorPicker } = props;
+
   const listStyle = {
     gridTemplateColumns: `repeat(${row}, 1fr)`,
     gridTemplateRows: `repeat(${row}, 1fr)`,

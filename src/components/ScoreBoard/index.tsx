@@ -1,6 +1,13 @@
 import React from "react";
-
+import { useData } from "../Contexts";
 const ScoreBoard = () => {
-  return <div></div>;
+  const context = useData();
+  return (
+    <div>
+      {context.players.map((ele, key) => {
+        <h2>{ele}</h2>;
+      })}
+    </div>
+  );
 };
 export default ScoreBoard;

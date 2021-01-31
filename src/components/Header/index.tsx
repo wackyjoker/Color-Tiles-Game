@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./header.css";
 import { icons } from "./iconData";
 import { AiOutlineMenuFold } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 const Header: React.FC = () => {
   const [toggle, setToggle] = useState<Boolean>(false);
   const fold = () => setToggle((prevState) => !prevState);
@@ -27,12 +27,12 @@ const Header: React.FC = () => {
             {icons.map((items, key) => {
               return (
                 <li role="listitem" className="list-item__container" key={key}>
-                  <Link to={items.path}>
+                  <NavLink to={items.path} className="list-item__link" activeClassName="list-item__link--selected">
                     <div role="listitem">
                       {items.icon}
                       <span>{items.title}</span>
                     </div>
-                  </Link>
+                  </NavLink>
                 </li>
               );
             })}

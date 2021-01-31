@@ -1,9 +1,9 @@
 export type IContext = {
     tiles: Array<Boolean>;
     row: number;
-    color?:string;
     openModal:boolean;
     winCheck:boolean;
+    players:Array<String>;
     onCloseModal:()=>void;
     returnedHandler?:()=>void
     validator:(bol:Boolean)=>()=>void;

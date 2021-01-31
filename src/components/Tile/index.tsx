@@ -1,13 +1,24 @@
 import React from "react";
 import "./tile.css";
 import { IContext } from "../Types";
-type Props = Partial<IContext> & { key: number };
+type Props = Partial<IContext> & { key: number; color: string };
 const Tile: React.FC<Props> = (props) => {
-  const listStyle = {
+  /*these code would display our HSL color in browser 
+  instead of converting it to RGB, but not recommended.
+
+  const tile = React.useRef() as React.MutableRefObject<HTMLButtonElement>;
+  const changeColor = () => {
+    tile.current.setAttribute("style", `background-color:${props.color}`);
+  };
+  useLayoutEffect(() => {
+    changeColor();
+  }, []); */
+  const tileStyle = {
     backgroundColor: props.color,
   };
+
   return (
-    <button className="tile__grid" onClick={props.returnedHandler} style={listStyle}>
+    <button id="tile__grid" onClick={props.returnedHandler} style={tileStyle}>
       Tile
     </button>
   );

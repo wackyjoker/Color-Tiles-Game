@@ -5,6 +5,7 @@
   text-decoration: none;
 }
 :root {
+  --font-color: #ffefd5;
   --header-bg-color: rgb(21, 32, 43);
   --header-item-color--hovered: #2b4055;
   --header-text-color--hovered: #0066ff;
@@ -14,8 +15,7 @@ html {
   font-size: 1vw;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", sans-serif;
+  font-family: -apple-system, "San Francisco", BlinkMacSystemFont, "San Francisco", Helvetica, Arial, san-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -26,6 +26,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 .main {
+  color: papayawhip;
   display: flex;
   justify-content: center;
   overflow: hidden;

@@ -15,7 +15,7 @@ export const icons = [
   },
   {
     title: "Score Board",
-    path: "/leaderboard",
+    path: "/scoreboard",
     icon: <AiTwotoneTrophy />,
     name: "nav-text",
   },

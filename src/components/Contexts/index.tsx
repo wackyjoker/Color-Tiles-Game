@@ -6,7 +6,7 @@ export const useData = () => useContext(Contexts);
 const Contexts = React.createContext({} as IContext);
 
 export const Provider: React.FC = ({ children }) => {
-  const [player, setPlayer] = useState<Array<String>>([]);
+  const [players, setPlayers] = useState<Array<string>>([]);
   const [tiles, setTiles] = useState<Array<Boolean>>([]);
   const [row, setRow] = useState(2);
   const [winCheck, setWinCheck] = useState(false);
@@ -14,24 +14,18 @@ export const Provider: React.FC = ({ children }) => {
   const onOpenModal = () => setOpenModal(true);
   const onCloseModal = () => setOpenModal(false);
 
-  const randomHue = Math.floor(Math.random() * 360);
-
-  const wrongColor = `hsl(${randomHue},100%, 50%)`;
-  const correctColor = `hsl(${randomHue},60%,70%)`;
-
-  const colorPicker = (check: Boolean) => (check ? correctColor : wrongColor);
-
   const newGame = new Game(row);
+
   const handleError = () => {
-    // alert("Wrong Tile,Game Over");
     setWinCheck(false);
     onOpenModal();
     resetRows();
-    newGame.setGame(setTiles);
   };
+
+  const colorPicker = (bol: Boolean) => (bol ? newGame.colors[1] : newGame.colors[0]);
   const resetRows = () => setRow(2);
   const addRow = () => setRow((prevState) => prevState + 1);
-
+  // setPlayers((prevState) => prevState.push("lalita"));
   useEffect(() => {
     if (row > 4) {
       setWinCheck(true);
@@ -44,7 +38,7 @@ export const Provider: React.FC = ({ children }) => {
 
   const validator = (check: Boolean) => (check ? addRow : handleError);
   return (
-    <Contexts.Provider value={{ tiles, row, openModal, winCheck, colorPicker, validator, onCloseModal }}>
+    <Contexts.Provider value={{ tiles, row, players, openModal, winCheck, colorPicker, validator, onCloseModal }}>
       {children}
     </Contexts.Provider>
   );

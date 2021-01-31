@@ -32,7 +32,7 @@ module.exports = ({ production }) => {
 
     devServer: {
       hot: true,
-      contentBase: path.join(__dirname, "bulid"),
+      contentBase: path.join(__dirname, "dist"),
       historyApiFallback: true,
       compress: true,
       port: 9000,
@@ -78,15 +78,11 @@ module.exports = ({ production }) => {
           ],
         },
         {
-          test: /\.(png|svg|jpg|gif)$/,
-          use: [
-            {
-              loader: "file-loader",
-              options: {
-                outputPath: "imagess",
-              },
-            },
-          ],
+          test: /\.(png|svg|jpe?g|gif)$/,
+          loader: "file-loader",
+          options: {
+            outputPath: "images",
+          },
         },
         {
           test: /\.ts(x?)$/,
@@ -105,16 +101,9 @@ module.exports = ({ production }) => {
         },
 
         {
-          test: /\.(png|jpg|gif|ico|svg)$/i,
+          test: /\.(png|jpe?g|gif|ico|svg)$/i,
+          loader: "url-loader",
           include: path.join(__dirname, "images"),
-          use: [
-            {
-              loader: "url-loader",
-              options: {
-                limit: 8192,
-              },
-            },
-          ],
         },
       ],
     },
