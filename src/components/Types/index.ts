@@ -9,6 +9,7 @@ export type IContext = {
     validator:(bol:Boolean)=>()=>void;
     colorPicker:(bol:Boolean) =>string; 
     addPlayer:(player:string)=>void;
+    scriptToWin?:()=>void;
   };
 
   // handleRows?: () => void;

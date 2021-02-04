@@ -28,6 +28,15 @@ export const Provider: React.FC = ({ children }) => {
   const resetRows = () => setRow(2);
   const addRow = () => setRow((prevState) => prevState + 1);
 
+  const scriptToWin = () => {
+    let timer = 0;
+    const interval = setInterval(function () {
+      timer++;
+      addRow();
+      if (timer > 2) clearInterval(interval);
+    }, 1500);
+  };
+
   useEffect(() => {
     if (row > 4) {
       setWinCheck(true);
@@ -41,7 +50,7 @@ export const Provider: React.FC = ({ children }) => {
   const validator = (check: Boolean) => (check ? addRow : handleError);
   return (
     <Contexts.Provider
-      value={{ tiles, row, players, openModal, winCheck, addPlayer, colorPicker, validator, onCloseModal }}
+      value={{ tiles, row, players, openModal, winCheck, scriptToWin, addPlayer, colorPicker, validator, onCloseModal }}
     >
       {children}
     </Contexts.Provider>

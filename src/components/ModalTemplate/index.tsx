@@ -1,5 +1,4 @@
-import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { Modal, ModalProps } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 import "./ModalTemp.css";
