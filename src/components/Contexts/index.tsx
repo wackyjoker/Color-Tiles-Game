@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState,useMemo } from "react";
 import { IContext } from "../Types";
 import { Game } from "../utils";
 export const useData = () => useContext(Contexts);
@@ -13,7 +13,7 @@ export const Provider: React.FC = ({ children }) => {
   const onOpenModal = () => setOpenModal(true);
   const onCloseModal = () => setOpenModal(false);
 
-  const newGame = new Game(row);
+  const newGame =useMemo(()=> new Game(row),[row]);
 
   const handleError = () => {
     setWinCheck(false);
@@ -32,17 +32,23 @@ export const Provider: React.FC = ({ children }) => {
     let timer = 0;
     const interval = setInterval(function () {
       timer++;
+      console.log(row);
       addRow();
-      if (timer > 2) clearInterval(interval);
+      if (timer > 2) {
+        timer = 0;
+        clearInterval(interval);
+      }
     }, 1500);
   };
-
   useEffect(() => {
     if (row > 4) {
       setWinCheck(true);
       onOpenModal();
       resetRows();
+      console.log("game new", row);
+      newGame.setGame(setTiles);
     } else {
+      console.log("game resetted", row);
       newGame.setGame(setTiles);
     }
   }, [row]);
