@@ -4,7 +4,7 @@ import { Game } from "../utils";
 export const useData = () => useContext(Contexts);
 const Contexts = React.createContext({} as IContext);
 
-export const Provider: React.FC = ({ children }) => {
+export const TileProvider: React.FC = ({ children }) => {
   const [players, setPlayers] = useState<Array<string>>([]);
   const [tiles, setTiles] = useState<Array<Boolean>>([]);
   const [row, setRow] = useState(2);
@@ -19,6 +19,7 @@ export const Provider: React.FC = ({ children }) => {
     setWinCheck(false);
     onOpenModal();
     resetRows();
+    // newGame.setGame(setTiles);
   };
   const addPlayer = (player: string) => {
     setPlayers((prevState) => [...prevState, player]);
@@ -51,7 +52,7 @@ export const Provider: React.FC = ({ children }) => {
       console.log("game resetted", row);
       newGame.setGame(setTiles);
     }
-  }, [row]);
+  }, [newGame]);
 
   const validator = (check: Boolean) => (check ? addRow : handleError);
   return (

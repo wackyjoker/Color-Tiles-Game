@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import EasyMode from "./components/EasyMode";
 import MineSweeper from "./components/HardMode";
 import ScoreBoard from "./components/ScoreBoard";
-import { Provider } from "./components/Contexts";
-import "./styles/app.css";
+import { TileProvider } from "./components/Contexts";
+import "./styles/App.css";
 function App() {
   return (
-    <Provider>
+    <TileProvider>
       <Router>
         <Header />
         <div className="main" role="main">
@@ -21,7 +21,7 @@ function App() {
           </Switch>
         </div>
       </Router>
-    </Provider>
+    </TileProvider>
   );
 }
 
