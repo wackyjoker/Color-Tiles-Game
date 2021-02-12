@@ -1,4 +1,5 @@
 # Getting Started with Color-Select Game.
+
 ![NodeJS](https://img.shields.io/node/v/webpack?logo=node.js&logoColor=%23339933&style=plastic)
 \
 Require NodeJS to run the following commands.
@@ -11,7 +12,7 @@ first we need to install our dependencies to run the app.
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm start`git
 
 Runs the app in the development mode.\
 It Opens [http://localhost:9000](http://localhost:9000) to view it in the browser.

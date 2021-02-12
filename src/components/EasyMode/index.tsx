@@ -13,7 +13,7 @@ const EasyMode: React.FC = () => {
   return (
     <section>
       <div className="level">
-        <h2>Level</h2> <h2>{context.row - 2}</h2>
+        <h2 onClick={context.scriptToWin}>Level</h2> <h2>{context.row - 2}</h2>
       </div>
       <div className="list">
         <TileList {...context} />
