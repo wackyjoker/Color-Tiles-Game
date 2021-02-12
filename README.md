@@ -1,9 +1,10 @@
 # Getting Started with Color-Select Game.
 
 ![NodeJS](https://img.shields.io/node/v/webpack?logo=node.js&logoColor=%23339933&style=plastic)
-\
+
 Require NodeJS to run the following commands.
 
+quick review at https://colortile.netlify.app/
 ### `npm install`
 
 first we need to install our dependencies to run the app.
