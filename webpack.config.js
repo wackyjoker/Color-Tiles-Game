@@ -81,7 +81,8 @@ module.exports = ({ production }) => {
           test: /\.(png|svg|jpe?g|gif)$/,
           loader: "file-loader",
           options: {
-            outputPath: "images",
+            outputPath: "assets",
+            publicPath: '/assets',
           },
         },
         {
@@ -103,7 +104,7 @@ module.exports = ({ production }) => {
         {
           test: /\.(png|jpe?g|gif|ico|svg)$/i,
           loader: "url-loader",
-          include: path.join(__dirname, "images"),
+          include: path.join(__dirname, "assets"),
         },
       ],
     },
