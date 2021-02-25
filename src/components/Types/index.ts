@@ -12,6 +12,12 @@ export type IContext = {
     scriptToWin?:()=>void;
   };
 
+ export type Prop<T> = {
+    prop: T
+    callback: (t: T) => void
+  }
+
+
   // handleRows?: () => void;
   // handleError?:()=>void;
   // type IhandleInput = (e: string) => void;
