@@ -2,7 +2,13 @@ import React from "react";
 import Tile from "../Tile";
 import "./tilelist.css";
 import { IContext } from "../Types";
-const TileList: React.FC<IContext> = (props) => {
+
+export type Props<T> = {
+  prop: T;
+  callback: (t: T) => void;
+};
+
+const TileList = (props: IContext) => {
   let { row, validator, colorPicker } = props;
 
   const listStyle = {
