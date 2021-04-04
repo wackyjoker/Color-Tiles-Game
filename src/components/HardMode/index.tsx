@@ -1,10 +1,10 @@
 import React from "react";
-import "./hardmode.css";
-import maintainance from "../../images/maintain.png";
+import styles from './HardMode.module.css';
+import maintenance from "../../images/maintain.png";
 const MineSweeper: React.FC = () => {
   return (
     <div>
-      <img src={maintainance} alt="maintainance" className="maintainance-img" />
+      <img src={maintenance} alt="maintainance" className={styles.maintenanceImg} />
     </div>
   );
 };
