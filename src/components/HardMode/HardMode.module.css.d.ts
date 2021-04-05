@@ -1,0 +1,1 @@
+export const maintenance__img :string ;

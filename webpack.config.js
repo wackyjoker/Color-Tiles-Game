@@ -2,10 +2,10 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+//const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = ({ production }) => {
-  console.log("are we on production mode? : ", production + " ( 0--o-o--0 )");
+  console.log("are we on production mode? : ", production??"Nope!" + " ( 0--o-o--0 )");
 
   return {
     mode: production ? "production" : "development",
@@ -19,13 +19,13 @@ module.exports = ({ production }) => {
         hash: true,
         template: "./src/index.html",
       }),
-      new MiniCssExtractPlugin({
-        // Options similar to the same options in webpackOptions.output
-        // all options are optional
-        filename: "[name].css",
-        chunkFilename: "[id].css",
-        ignoreOrder: true, // Enable to remove warnings about conflicting order
-      }),
+      // new MiniCssExtractPlugin({
+      //   // Options similar to the same options in webpackOptions.output
+      //   // all options are optional
+      //   filename: "[name].css",
+      //   chunkFilename: "[id].css",
+      //   ignoreOrder: true, // Enable to remove warnings about conflicting order
+      // }),
     ],
 
     //webpack dev server
@@ -42,7 +42,7 @@ module.exports = ({ production }) => {
     devtool: "source-map",
 
     resolve: {
-      // Add '.ts' and '.tsx' as resolvable extensions.
+      // Add '.ts' and '.tsx' '.js' as resolvable extensions.
       extensions: [".ts", ".tsx", ".js"],
     },
     optimization: {
@@ -55,26 +55,45 @@ module.exports = ({ production }) => {
           // Creates `style` nodes from JS strings
 
           use: [
-            {
-              loader: "style-loader",
-            },
-            {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                // you can specify a publicPath here
-                // by default it uses publicPath in webpackOptions.output
-                publicPath: "../",
-                esModule: false,
-                // hmr: process.env.NODE_ENV === "development", webpack 4 migration
-              },
-            },
+              "style-loader",
+            //   {
+            //    loader: 'typings-for-css-modules-loader',
+            //    options: {
+            //      modules: {auto:true},
+            //      namedExport: true,
+            //      camelCase:true,
+            //   }
+            // },
+            // {
+            //   loader: MiniCssExtractPlugin.loader,
+            //   options: {
+            //     // you can specify a publicPath here
+            //     // by default it uses publicPath in webpackOptions.output
+            //     publicPath: "../",
+            //     //esModule: false,
+            //     // hmr: process.env.NODE_ENV === "development", webpack 4 migration
+            //   },
+            // },
             // Translates CSS into CommonJS
             {
               loader: "css-loader",
               options: {
-                modules: { auto: true },
-              },
-            },
+                importLoaders: 1,
+
+                // modules: {
+                //   compileType: "module",
+                //   mode: "local",
+                //   auto: true,
+                //   exportGlobals: true,
+                //   localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                //   localIdentContext: path.resolve(__dirname, "src"),
+                //   localIdentHashPrefix: "my-custom-hash",
+                //   namedExport: true,
+                //   exportLocalsConvention: "camelCase",
+                //   exportOnlyLocals: false,
+                // }
+              }
+            }
           ],
         },
         {
@@ -105,6 +124,8 @@ module.exports = ({ production }) => {
           test: /\.(png|jpe?g|gif|ico|svg)$/i,
           loader: "url-loader",
           include: path.join(__dirname, "assets"),
+          //webpack v4 syntax for url loader, use type:"asset" for webpack v5
+          //visit https://webpack.js.org/loaders/css-loader/#pure-css-css-modules-and-postcss for more details
         },
       ],
     },
