@@ -124,9 +124,8 @@ module.exports = ({ production }) => {
           test: /\.(png|jpe?g|gif|ico|svg)$/i,
           loader: "url-loader",
           include: path.join(__dirname, "assets"),
-          //webpack v4 syntax below is being commented out
-
-
+          //webpack v4 syntax for url loader, use type:"asset" for webpack v5
+          //visit https://webpack.js.org/loaders/css-loader/#pure-css-css-modules-and-postcss for more details
         },
       ],
     },

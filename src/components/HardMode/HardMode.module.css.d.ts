@@ -1,1 +1,1 @@
-export const maintenanceImg : string;
+export const maintenance__img :string ;
