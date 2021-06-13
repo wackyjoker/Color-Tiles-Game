@@ -1,16 +1,16 @@
-export const FETCH_POSTS = 'FETCH_POSTS';
-export const NEW_POST = 'NEW_POST';
+export const FETCH_POSTS = "FETCH_POSTS";
+export const NEW_POST = "NEW_POST";
 
-import {ActionType} from './types'
+import { ActionTypes } from "./types";
 
 type ITiles = {
-    type:ActionType.TILES
-    payload:Array<boolean>
+  type: ActionTypes.TILES;
+  payload: Array<boolean>;
+};
+
+interface IRows {
+  type: ActionTypes.ROW;
+  payload: number;
 }
 
-interface IRows{
-    type:ActionType.ROW
-    payload:number
-}
-
-export type Action = ITiles | IRows
+export type Action = ITiles | IRows;
