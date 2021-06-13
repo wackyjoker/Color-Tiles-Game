@@ -17,7 +17,7 @@ import "./styles/App.css";
 
 
 function App() {
-  console.log(store);
+  console.log('this is our store',store)
   return (
     <Provider store={store}>
       <TileProvider>
@@ -38,4 +38,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

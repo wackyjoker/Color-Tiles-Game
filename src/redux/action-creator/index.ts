@@ -1,10 +1,10 @@
-import { ActionType } from "../actions/types";
+import { ActionTypes } from "../actions/types";
 import { Dispatch } from "redux";
 
 export const ActionTile = (tile: number[]) => {
   return (dispatch: Dispatch) => {
     dispatch({
-      type: ActionType.TILES,
+      type: ActionTypes.TILES,
       payload: tile,
     });
   };
@@ -14,7 +14,7 @@ export const ActionTile = (tile: number[]) => {
 export const ActionRow = (row: number) => {
     return (dispatch: Dispatch) => {
         dispatch({
-            type: ActionType.ROW,
+            type: ActionTypes.ROW,
             payload: row,
         });
     };

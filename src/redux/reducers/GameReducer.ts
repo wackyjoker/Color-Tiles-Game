@@ -1,4 +1,4 @@
-import { ActionType } from "../actions/types";
+import { ActionTypes } from "../actions/types";
 import { Action } from "../actions";
 
 const initialState = {
@@ -8,10 +8,10 @@ const initialState = {
 
 const GameReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case ActionType.ROW:
+    case ActionTypes.ROW:
       return { ...state, row: action.payload };
 
-    case ActionType.TILES:
+    case ActionTypes.TILES:
       return { ...state, tiles: action.payload };
 
     default:
