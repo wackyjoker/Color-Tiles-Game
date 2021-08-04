@@ -9,7 +9,7 @@ const initialState = {
 const GameReducer = (state = initialState, action: Action) => {
   switch (action.type) {
     case ActionTypes.ROW:
-      return { ...state, row: action.payload };
+      return { ...state, row: state.row +1 };
 
     case ActionTypes.TILES:
       return { ...state, tiles: action.payload };

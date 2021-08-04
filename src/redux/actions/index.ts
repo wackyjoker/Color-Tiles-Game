@@ -8,7 +8,6 @@ type ITiles = {
 
 interface IRows {
   type: ActionTypes.ROW;
-  payload: number;
 }
 
 export type Action = ITiles | IRows;

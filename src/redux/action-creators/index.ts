@@ -1,8 +1,8 @@
 import { ActionTypes } from "../actions/types";
 import { Dispatch } from "redux";
-
-export const ActionTile = (tile: number[]) => {
-  return (dispatch: Dispatch) => {
+import { Action } from "../actions";
+export const newTile = (tile: boolean[]) => {
+  return (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionTypes.TILES,
       payload: tile,
@@ -10,12 +10,10 @@ export const ActionTile = (tile: number[]) => {
   };
 };
 
-
-export const ActionRow = (row: number) => {
-    return (dispatch: Dispatch) => {
-        dispatch({
-            type: ActionTypes.ROW,
-            payload: row,
-        });
-    };
+export const addRow = () => {
+  return (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: ActionTypes.ROW
+    });
+  };
 };
