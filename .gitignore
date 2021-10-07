@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+#test build
+/dist
+
 # testing
 /coverage
 cypress/videos
