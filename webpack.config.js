@@ -85,7 +85,7 @@ module.exports = ({ production }) => {
                   mode: "local",
                   auto: true,
                   exportGlobals: true,
-                  localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                  localIdentName: production ? "[hash:base64:5]" : "[path][name]__[local]",
                   localIdentContext: path.resolve(__dirname, "src"),
                   localIdentHashSalt: "my-custom-hash",
                   namedExport: false,
