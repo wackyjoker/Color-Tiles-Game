@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import styles from './header.css'
+import styles from './header.module.css'
 import { icons } from './iconData'
 import { AiOutlineMenuFold } from 'react-icons/ai'
 import { NavLink } from 'react-router-dom'
@@ -30,8 +30,7 @@ const Header: React.FC = () => {
                 <li role="listitem" className={styles["list-item__container"]} key={key}>
                   <NavLink
                     to={items.path}
-                    className={styles["list-item__link"]}
-                    activeClassName={styles["list-item__link--selected"]}
+                    className={({isActive})=>styles["list-item__link"+(isActive?"--selected":"")]}
                   >
                     <div role="listitem">
                       {items.icon}

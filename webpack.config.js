@@ -75,6 +75,7 @@ module.exports = ({ production }) => {
             //   },
             // },
             // Translates CSS into CommonJS
+            // "css-loader"
             {
               loader: "css-loader",
               options: {
@@ -87,8 +88,8 @@ module.exports = ({ production }) => {
                   localIdentName: "[path][name]__[local]--[hash:base64:5]",
                   localIdentContext: path.resolve(__dirname, "src"),
                   localIdentHashSalt: "my-custom-hash",
-                  namedExport: true,
-                  exportLocalsConvention: "camelCaseOnly",
+                  namedExport: false,
+                  exportLocalsConvention: "asIs",
                   exportOnlyLocals: false,
                 },
               }
