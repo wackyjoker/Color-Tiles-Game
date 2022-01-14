@@ -2,9 +2,9 @@ import React from "react";
 import Header from "./components/Header";
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
-  Redirect,
+  Navigate,
 } from "react-router-dom";
 import EasyMode from "./components/EasyMode";
 import MineSweeper from "./components/HardMode";
@@ -24,13 +24,13 @@ function App() {
         <Router>
           <Header />
           <div className="main" role="main">
-            <Switch>
-              <Redirect exact from="/" to="/easymode" />
-              <Route path="/easymode" exact component={EasyMode} />
-              <Route path="/minesweeper" component={MineSweeper} />
-              <Route path="/scoreboard" component={ScoreBoard} />
-              <Route component={() => <h1>Page Not Found 404</h1>} />
-            </Switch>
+            <Routes>
+              <Route path="/" element={ <Navigate to="/easymode" />} />
+              <Route path="/easymode"  element={<EasyMode/>} />
+              <Route path="/minesweeper" element={<MineSweeper/>} />
+              <Route path="/scoreboard" element={<ScoreBoard/>} />
+              <Route path="*" element={<h1>Page Not Found 404</h1>} />
+            </Routes>
           </div>
         </Router>
       </TileProvider>

@@ -4,7 +4,7 @@ import "react-responsive-modal/styles.css";
 import "./ModalTemp.css";
 import loseimg from "../../images/gameover.png";
 import winimg from "../../images/weWin.png";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 interface TempProps extends ModalProps {
   open: boolean;
   onClose(): void;
@@ -24,10 +24,10 @@ export default ModalGenerator;
 // Modal Template Argument
 export const ModalTemplate: React.FC<TempProps> = (props) => {
   const [input, setInput] = useState("");
-  let history = useHistory();
+  let navigate = useNavigate();
   const handleClick = (e: any) => {
     props.addPlayer(input);
-    history.push("/scoreboard");
+    navigate("/scoreboard");
   };
   const handleChange = (e: any) => {
     setInput(e.target.value);

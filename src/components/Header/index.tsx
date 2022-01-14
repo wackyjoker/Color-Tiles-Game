@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react'
-import './header.css'
+import cn from 'classnames'
+import styles from './header.module.css'
 import { icons } from './iconData'
 import { AiOutlineMenuFold } from 'react-icons/ai'
 import { NavLink } from 'react-router-dom'
 const Header: React.FC = () => {
-  const [toggle, setToggle] = useState<Boolean>(false)
-  const fold = () => setToggle((prevState) => !prevState)
+  const [toggled, setToggled] = useState<Boolean>(false)
+  const fold = () => setToggled((prevState) => !prevState)
+  console.log(styles.header);
   useEffect(() => {
     if (window.matchMedia('(max-width: 500px)').matches) fold()
   }, [])
 
   return (
     <>
-      <header className={toggle ? 'header active' : 'header'} role="banner">
-        <nav role="navigation" className="nav">
-          <div className={toggle ? 'title__bar active' : 'title__bar'}>
+      <header className={cn(styles.header,{[styles.active] : toggled}) } role="banner">
+        <nav role="navigation" className={styles.nav}>
+          <div className={cn(styles['title__bar'],{[styles.active]:toggled})}>
             <h2>Menu</h2>
             <AiOutlineMenuFold
-              className={toggle ? 'title__icon active' : 'title__icon'}
+              className={cn(styles['title__icon'],{ [styles.active] : toggled})}
               onClick={fold}
               role="presentation"
               aria-label="fold"
@@ -26,11 +28,10 @@ const Header: React.FC = () => {
           <ul role="list" aria-labelledby="navigation">
             {icons.map((items, key) => {
               return (
-                <li role="listitem" className="list-item__container" key={key}>
+                <li role="listitem" className={styles["list-item__container"]} key={key}>
                   <NavLink
                     to={items.path}
-                    className="list-item__link"
-                    activeClassName="list-item__link--selected"
+                    className={({isActive})=>cn(styles["list-item__link"],{[styles["list-item__link--selected"]]:isActive})}
                   >
                     <div role="listitem">
                       {items.icon}
