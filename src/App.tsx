@@ -25,11 +25,11 @@ function App() {
           <Header />
           <div className="main" role="main">
             <Routes>
-              <Route path="/" element={() => <Navigate to="/easymode" />} />
+              <Route path="/" element={ <Navigate to="/easymode" />} />
               <Route path="/easymode"  element={<EasyMode/>} />
               <Route path="/minesweeper" element={<MineSweeper/>} />
               <Route path="/scoreboard" element={<ScoreBoard/>} />
-              <Route element={() => <h1>Page Not Found 404</h1>} />
+              <Route path="*" element={<h1>Page Not Found 404</h1>} />
             </Routes>
           </div>
         </Router>
