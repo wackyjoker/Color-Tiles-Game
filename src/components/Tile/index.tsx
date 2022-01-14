@@ -19,9 +19,7 @@ function Tile<T>(props: Props<T>) {
   };
 
   return (
-    <button id="tile__grid" onClick={props.returnedHandler} style={tileStyle} data-auto-id="tile_grid">
-      Tile
-    </button>
+    <button id="tile__grid" onClick={props.returnedHandler} style={tileStyle} data-auto-id="tile_grid" />
   );
 }
 export default Tile;
