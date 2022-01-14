@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import cn from 'classnames'
 import styles from './header.module.css'
 import { icons } from './iconData'
 import { AiOutlineMenuFold } from 'react-icons/ai'
@@ -13,12 +14,12 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className={toggled ? styles['header active'] : styles.header} role="banner">
+      <header className={cn(styles.header,{[styles.active] : toggled}) } role="banner">
         <nav role="navigation" className={styles.nav}>
-          <div className={toggled ? styles['title__bar active'] : styles['title__bar']}>
+          <div className={cn(styles['title__bar'],{[styles.active]:toggled})}>
             <h2>Menu</h2>
             <AiOutlineMenuFold
-              className={toggled ? styles['title__icon active'] : styles['title__icon']}
+              className={cn(styles['title__icon'],{ [styles.active] : toggled})}
               onClick={fold}
               role="presentation"
               aria-label="fold"
@@ -30,7 +31,7 @@ const Header: React.FC = () => {
                 <li role="listitem" className={styles["list-item__container"]} key={key}>
                   <NavLink
                     to={items.path}
-                    className={({isActive})=>styles["list-item__link"+(isActive?"--selected":"")]}
+                    className={({isActive})=>cn(styles["list-item__link"],{[styles["list-item__link--selected"]]:isActive})}
                   >
                     <div role="listitem">
                       {items.icon}
