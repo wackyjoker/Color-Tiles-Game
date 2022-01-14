@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./components/Header";
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   Redirect,
 } from "react-router-dom";
@@ -24,13 +24,13 @@ function App() {
         <Router>
           <Header />
           <div className="main" role="main">
-            <Switch>
+            <Routes>
               <Redirect exact from="/" to="/easymode" />
-              <Route path="/easymode" exact component={EasyMode} />
-              <Route path="/minesweeper" component={MineSweeper} />
-              <Route path="/scoreboard" component={ScoreBoard} />
+              <Route path="/easymode" exact component={<EasyMode/>} />
+              <Route path="/minesweeper" component={<MineSweeper/>} />
+              <Route path="/scoreboard" component={<ScoreBoard/>} />
               <Route component={() => <h1>Page Not Found 404</h1>} />
-            </Switch>
+            </Routes>
           </div>
         </Router>
       </TileProvider>

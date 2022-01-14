@@ -32,7 +32,7 @@ module.exports = ({ production }) => {
 
     devServer: {
       hot: true,
-      contentBase: path.join(__dirname, "dist"),
+      static: path.join(__dirname, "dist"),
       historyApiFallback: true,
       compress: true,
       port: 9000,
@@ -78,17 +78,17 @@ module.exports = ({ production }) => {
             {
               loader: "css-loader",
               options: {
-                // importLoaders: 1,
-
+                // importLoaders: 2,
+                //[path]__[local]
                 modules: {
                   mode: "local",
                   auto: true,
                   exportGlobals: true,
-                  localIdentName: "[name]--[hash:base64:5]", //[path]__[local]
+                  localIdentName: "[path][name]__[local]--[hash:base64:5]",
                   localIdentContext: path.resolve(__dirname, "src"),
                   localIdentHashSalt: "my-custom-hash",
                   namedExport: true,
-                  exportLocalsConvention: "camelCase",
+                  exportLocalsConvention: "camelCaseOnly",
                   exportOnlyLocals: false,
                 },
               }
