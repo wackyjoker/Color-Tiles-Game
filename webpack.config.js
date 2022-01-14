@@ -5,7 +5,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 //const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = ({ production }) => {
-  console.log("are we on production mode? : ", production??"Nope!" + " ( 0--o-o--0 )");
+  console.log("are we on production mode? : ", production ?? "Nope!" + " ( 0--o-o--0 )");
 
   return {
     mode: production ? "production" : "development",
@@ -55,7 +55,7 @@ module.exports = ({ production }) => {
           // Creates `style` nodes from JS strings
 
           use: [
-              "style-loader",
+            "style-loader",
             //   {
             //    loader: 'typings-for-css-modules-loader',
             //    options: {
@@ -78,20 +78,19 @@ module.exports = ({ production }) => {
             {
               loader: "css-loader",
               options: {
-                importLoaders: 1,
+                // importLoaders: 1,
 
-                // modules: {
-                //   compileType: "module",
-                //   mode: "local",
-                //   auto: true,
-                //   exportGlobals: true,
-                //   localIdentName: "[path][name]__[local]--[hash:base64:5]",
-                //   localIdentContext: path.resolve(__dirname, "src"),
-                //   localIdentHashPrefix: "my-custom-hash",
-                //   namedExport: true,
-                //   exportLocalsConvention: "camelCase",
-                //   exportOnlyLocals: false,
-                // }
+                modules: {
+                  mode: "local",
+                  auto: true,
+                  exportGlobals: true,
+                  localIdentName: "[name]--[hash:base64:5]", //[path]__[local]
+                  localIdentContext: path.resolve(__dirname, "src"),
+                  localIdentHashSalt: "my-custom-hash",
+                  namedExport: true,
+                  exportLocalsConvention: "camelCase",
+                  exportOnlyLocals: false,
+                },
               }
             }
           ],
