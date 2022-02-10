@@ -6,7 +6,6 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = ({ production }) => {
   console.log("are we on production mode? : ", production ?? "Nope!" + " ( 0--o-o--0 )");
-
   return {
     mode: production ? "production" : "development",
     entry: "./src/index.tsx",
