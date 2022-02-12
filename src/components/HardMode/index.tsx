@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './hardMode.module.css'
+import styles from './hardmode.module.css'
 import maintenance from '../../images/maintain.png'
 const MineSweeper: React.FC = () => {
     console.log('here come styles')
